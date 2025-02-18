@@ -16,6 +16,8 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+/vendor
+/vendor/bundle
 
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
@@ -33,5 +35,3 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-vendor
-vendor/bundle
