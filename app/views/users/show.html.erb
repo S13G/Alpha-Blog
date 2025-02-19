@@ -8,6 +8,10 @@
 <body>
 <h1><%= @user.username %> profile</h1>
 <br>
+<p>
+  <%= link_to 'Logout', logout_path, method: :delete %>
+</p>
+<br>
 <%= gravatar_for @user, size: 200 %>
 <br>
 <p><%= link_to 'Edit your profile', edit_user_path(@user) %></p>
