@@ -9,11 +9,10 @@
 <h1><%= @user.username %> profile</h1>
 <br>
 <%= gravatar_for @user, size: 200 %>
-<p>
-  <%= link_to 'Return to articles listing', articles_path %>
-</p>
 <br>
+<p><%= link_to 'Edit your profile', edit_user_path(@user) %></p>
 <h3>Articles</h3>
+<%= will_paginate @articles %>
 <%= render 'articles/article' %>
 </body>
 </html>

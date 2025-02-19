@@ -2950,6 +2950,36 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="will_paginate (v4.0.1) [path][gem]" type="rubylib">
+        <properties>
+          <option name="additionalInfo">
+            <AdditionalInfo>
+              <option name="authors" value="N/A" />
+              <option name="email" value="N/A" />
+              <option name="homepage" value="N/A" />
+              <option name="summary" value="N/A" />
+            </AdditionalInfo>
+          </option>
+          <option name="fromPath" value="true" />
+          <option name="name" value="will_paginate" />
+          <option name="requirePaths">
+            <list>
+              <option value="lib" />
+            </list>
+          </option>
+          <option name="url" value="file://$MODULE_DIR$/vendor/cache/ruby/3.3.0/gems/will_paginate-4.0.1" />
+          <option name="version" value="4.0.1" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/cache/ruby/3.3.0/gems/will_paginate-4.0.1/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/cache/ruby/3.3.0/gems/will_paginate-4.0.1/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="xpath (v3.2.0) [path][gem]" type="rubylib">
         <properties>
           <option name="additionalInfo">
