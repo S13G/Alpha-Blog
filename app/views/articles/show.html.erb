@@ -9,6 +9,7 @@
 
 <h1>Title: <%= @article.title %></h1>
 <p>Description: <%= @article.description %></p>
+<p>By: <%= @article.user.username if @article.user%></p>
 
 <br>
 <p>
