@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profile Details</title>
+</head>
+<body>
+<h1><%= @user.username %> profile</h1>
+<br>
+<%= gravatar_for @user, size: 200 %>
+<p>
+  <%= link_to 'Return to articles listing', articles_path %>
+</p>
+<br>
+<h3>Articles</h3>
+<%= render 'articles/article' %>
+</body>
+</html>
