@@ -35,9 +35,11 @@
       <td>
         Joined <%= time_ago_in_words(user.created_at) %>
       </td>
-      <td>
-        <%= link_to "Edit profile", edit_user_path(user) %>
-      </td>
+      <% if logged_in? and @article.user == current_user %>
+        <td>
+          <%= link_to "Edit profile", edit_user_path(user) %>
+        </td>
+      <% end %>
     </tr>
   <% end %>
   </tbody>

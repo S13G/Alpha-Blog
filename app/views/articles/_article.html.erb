@@ -19,13 +19,14 @@
       <td>
         <a href="<%= article_path(article) %>">Show</a>
       </td>
-      <td>
-        <a href="<%= edit_article_path(article) %>">Edit</a>
-      </td>
-      <td>
-      <td>
-        <%= button_to 'Delete', article_path(article), method: :delete, data: { confirm: "Are you sure?" } %>
-      </td>
+      <% if logged_in? and article.user == current_user %>
+        <td>
+          <a href="<%= edit_article_path(article) %>">Edit</a>
+        </td>
+        <td>
+          <%= button_to 'Delete', article_path(article), method: :delete, data: { confirm: "Are you sure?" } %>
+        </td>
+      <% end %>
     </tr>
   <% end %>
   </tbody>

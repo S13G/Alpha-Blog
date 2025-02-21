@@ -17,11 +17,22 @@
 <p>
   <%= link_to 'About page', about_path %>
 </p>
-<p>
-  <%= link_to 'Login', login_path %>
-</p>
-<p>
-  <%= link_to 'Sign up', signup_path %>
-</p>
+
+<% if logged_in? %>
+  <p>
+    <%= link_to current_user.username, user_path(current_user) %>
+  </p>
+  <p>
+    <%= button_to 'Logout', logout_path, method: :delete %>
+  </p>
+<% else %>
+  <p>
+    <%= link_to 'Login', login_path %>
+  </p>
+
+  <p>
+    <%= link_to 'Sign up', signup_path %>
+  </p>
+<% end %>
 </body>
 </html>
