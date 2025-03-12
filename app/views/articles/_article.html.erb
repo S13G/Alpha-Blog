@@ -16,10 +16,13 @@
       <% if article.user %>
         <td><%= link_to article.user.username, user_path(article.user) %></td>
       <% end %>
+      <%= if article.categories.any? %>
+        <%= render article.categories %>
+      <% end %>
       <td>
         <a href="<%= article_path(article) %>">Show</a>
       </td>
-      <% if logged_in? and article.user == current_user %>
+      <% if logged_in? and (article.user == current_user || current_user.admin?) %>
         <td>
           <a href="<%= edit_article_path(article) %>">Edit</a>
         </td>

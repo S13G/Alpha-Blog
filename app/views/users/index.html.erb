@@ -35,10 +35,17 @@
       <td>
         Joined <%= time_ago_in_words(user.created_at) %>
       </td>
-      <% if logged_in? and @article.user == current_user %>
-        <td>
-          <%= link_to "Edit profile", edit_user_path(user) %>
-        </td>
+      <% if logged_in? %>
+        <%= if user == current_user %>
+          <td>
+            <%= link_to "Edit profile", edit_user_path(user) %>
+          </td>
+        <% end %>
+        <%= if current_user.admin? %>
+          <td>
+            <%= button_to "Delete user", user_path(user), method: :delete %>
+          </td>
+        <% end %>
       <% end %>
     </tr>
   <% end %>

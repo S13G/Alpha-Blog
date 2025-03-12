@@ -19,8 +19,20 @@
 </p>
 
 <% if logged_in? %>
+  <a href="#">
+    <%= "(Admin)" if current_user.admin? %> Profile [<%= current_user.username %>
+  </a>
   <p>
     <%= link_to current_user.username, user_path(current_user) %>
+  </p>
+  <p>
+    <%= link_to "View your profile", user_path(current_user) %>
+  </p>
+  <p>
+    <%= link_to "Edit your profile", edit_user_path(current_user) %>
+  </p>
+  <p>
+    <%= link_to "Delete your profile", user_path(current_user), method: :delete %>
   </p>
   <p>
     <%= button_to 'Logout', logout_path, method: :delete %>
@@ -34,5 +46,12 @@
     <%= link_to 'Sign up', signup_path %>
   </p>
 <% end %>
+
+<a href="#"> Categories</a>
+<% if logged_in? && current_user.admin? %>
+<%= link_to "Create new category", new_category_path %>
+<% end %>
+
+<%= link_to "View categories", categories_path %>
 </body>
 </html>

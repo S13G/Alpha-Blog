@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  # before_action:require_login, except: [:new, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def new
     @user = User.new
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    session[:user_id] = nil
+    session[:user_id] = nil if @user == current_user
     redirect_to root_path, :notice => "Account and all associated articles successfully deleted"
   end
 
@@ -51,8 +51,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  # def require_login
-  # unless logged_in?
-  #   redirect_to login_path, :alert => "You must be logged in to perform that action"
-  # end
+  def require_same_user
+    if current_user != @user && !current_user.admin?
+      redirect_to @user, :alert => "You can only edit or delete your own account."
+    end
+  end
 end

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>All Categories</title>
+</head>
+<body>
+<h1>All Categories</h1>
+<%= will_paginate @categories %>
+<br>
+<% @categories.each do |category| %>
+  <tr>
+    <td><%= link_to category.name, category_path(category) %></td>
+    <td><%= pluralize(category.articles.count, "article") %> </td>
+    <td>Created at: <%= category.created_at %></td>
+    <td>Edited at: <%= time_ago_in_words(category.updated_at) %></td>
+    <td>
+      <a href="<%= category_path(category) %>">Show</a>
+    </td>
+  </tr>
+<% end %>
+<br>
+<%= will_paginate @categories %>
+<br>
+<p>
+  <%= link_to 'Create New Category', new_category_path %>
+</p>
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+<%= render "shared/errors", obj: @category %>
+<%= form_with(model: @category, local: true) do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <%= f.submit %>
+<% end %>

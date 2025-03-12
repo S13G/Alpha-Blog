@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create new category</title>
+</head>
+<body>
+<h1>Create a new category</h1>
+<%= render "shared/errors", obj: @category %>
+
+<%= form_with(model: @category, local: true) do |f| %>
+  <p>
+    <%= f.label :name, "Category name" %><br>
+    <%= f.text_field :name, placeholder: "Enter a name" %>
+  </p>
+
+  <%= f.submit %>
+<% end %>
+<p>
+  <%= link_to 'Return to articles listing', articles_path %>
+</p>
+</body>
+</html>
